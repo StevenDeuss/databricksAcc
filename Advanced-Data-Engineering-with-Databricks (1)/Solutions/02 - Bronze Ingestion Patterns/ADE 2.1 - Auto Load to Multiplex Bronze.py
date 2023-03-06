@@ -114,6 +114,10 @@ display(joined_df)
 
 # COMMAND ----------
 
+
+
+# COMMAND ----------
+
 # MAGIC %md
 # MAGIC ## Define Triggered Incremental Auto Loading to Multiplex Bronze Table
 # MAGIC 

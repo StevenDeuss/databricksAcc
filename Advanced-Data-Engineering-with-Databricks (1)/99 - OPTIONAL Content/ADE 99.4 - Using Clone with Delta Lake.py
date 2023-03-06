@@ -50,7 +50,7 @@
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC DESCRIBE FORMATTED sensors_prod
+# MAGIC DESCRIBE formatted sensors_prod
 
 # COMMAND ----------
 
@@ -261,7 +261,8 @@ display(files)
 # COMMAND ----------
 
 # MAGIC %sql 
-# MAGIC -- SELECT * FROM sensors_dev
+# MAGIC 
+# MAGIC SELECT * FROM sensors_dev
 
 # COMMAND ----------
 
