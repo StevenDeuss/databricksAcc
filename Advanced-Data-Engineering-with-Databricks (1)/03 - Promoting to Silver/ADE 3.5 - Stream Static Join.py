@@ -74,6 +74,11 @@
 
 # COMMAND ----------
 
+# MAGIC %sql
+# MAGIC select * from TEMP_workout_bpm
+
+# COMMAND ----------
+
 # MAGIC %md
 # MAGIC Note that the streaming portion of the join drives this join process. As currently implemented, this means that records from the **`heart_rate_silver`** table will only appear in our results table if a matching record has been written to the **`completed_workouts`** table prior to processing this query.
 # MAGIC 

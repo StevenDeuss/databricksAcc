@@ -41,7 +41,7 @@
 # MAGIC * Starting a stream against the **`bronze`** table
 # MAGIC * Filtering all records by **`topic = 'workout'`**
 # MAGIC * Deduping the data 
-# MAGIC * Merging non-matching records into **`owrkouts_silver`**
+# MAGIC * Merging non-matching records into **`wrokouts_silver`**
 # MAGIC 
 # MAGIC ...roughly the same strategy we used earlier to create the **`heart_rate_silver`** table
 
@@ -154,6 +154,23 @@ process_completed_workouts() # Update the completed_workouts table
 # MAGIC SELECT COUNT(*) 
 # MAGIC AS total 
 # MAGIC FROM completed_workouts
+
+# COMMAND ----------
+
+total = spark.table("completed_workouts").count() # .sql("SELECT COUNT(*) FROM completed_workouts") 
+print(f"{total:3} total")
+
+total = spark.table("completed_workouts").filter("in_progress=true").count()
+print(f"{total:3} where record is still awaiting end time")
+
+total = spark.table("completed_workouts").filter("end_time IS NOT NULL").count()
+print(f"{total:3} where end time has been recorded")
+
+total = spark.table("completed_workouts").filter("start_time IS NOT NULL").count()
+print(f"{total:3} where end time arrived after start time")
+
+total = spark.table("completed_workouts").filter("in_progress=true AND end_time IS NULL").count()
+print(f"{total:3} where they are in_progress AND have an end_time")
 
 # COMMAND ----------
 

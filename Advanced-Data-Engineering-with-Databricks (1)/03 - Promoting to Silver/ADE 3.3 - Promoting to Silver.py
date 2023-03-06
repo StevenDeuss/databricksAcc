@@ -53,7 +53,7 @@
 
 # MAGIC %sql
 # MAGIC -- TODO
-# MAGIC ALTER TABLE -- <FILL-IN>
+# MAGIC ALTER TABLE heart_rate_silver ADD CONSTRAINT dateWithinRange check(time > '2017-01-01') 
 
 # COMMAND ----------
 
@@ -118,7 +118,14 @@ class Upsert:
 # COMMAND ----------
 
 # TODO
-sql_query = """<FILL-IN>"""
+
+
+sql_query = """
+  MERGE INTO heart_rate_silver a
+  USING stream_updates b
+  ON a.device_id=b.device_id AND a.time=b.time
+  WHEN NOT MATCHED THEN INSERT *
+"""
  
 streaming_merge=Upsert(sql_query)
 
