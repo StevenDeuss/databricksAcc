@@ -89,7 +89,7 @@ print(f"User DB Path:      {DA.paths.user_db}")
 
 # COMMAND ----------
 
-DA.install_datasets(reinstall=False)
+DA.install_datasets(reinstall=True)
 
 # COMMAND ----------
 

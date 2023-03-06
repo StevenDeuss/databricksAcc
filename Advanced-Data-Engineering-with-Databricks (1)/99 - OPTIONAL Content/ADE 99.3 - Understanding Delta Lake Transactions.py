@@ -286,6 +286,11 @@ display_delta_log("bronze")
 
 # COMMAND ----------
 
+# MAGIC %sql
+# MAGIC describe history bronze
+
+# COMMAND ----------
+
 # MAGIC %md
 # MAGIC ## File Compaction
 # MAGIC Running **`OPTIMIZE`** on a table will compact small files toward the target file size.
@@ -386,7 +391,7 @@ display(files)
 
 # COMMAND ----------
 
-display_delta_log("bronze", 11)
+display_delta_log("bronze", 10)
 
 # COMMAND ----------
 

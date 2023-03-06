@@ -105,6 +105,11 @@ update_silver()
 
 # COMMAND ----------
 
+# MAGIC %sql
+# MAGIC select * from bronze
+
+# COMMAND ----------
+
 # MAGIC %md
 # MAGIC Processing new records is as easy as adding them to our source table **`bronze`**...
 
@@ -411,6 +416,11 @@ streaming_merge()
 
 # COMMAND ----------
 
+# MAGIC %sql
+# MAGIC select * from bronze_status
+
+# COMMAND ----------
+
 # MAGIC %md
 # MAGIC Inserting new records will allow us to then apply these changes to our silver data.
 
@@ -625,6 +635,12 @@ streaming_merge()
 # MAGIC %sql
 # MAGIC SELECT * FROM joined_status
 # MAGIC ORDER BY id DESC
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC 
+# MAGIC select * from bronze
 
 # COMMAND ----------
 

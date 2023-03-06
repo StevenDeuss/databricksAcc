@@ -297,7 +297,19 @@ display(df)
 
 # MAGIC %sql 
 # MAGIC -- TODO
-# MAGIC <FILL-IN>
+# MAGIC 
+# MAGIC OPTIMIZE no_part_table
+# MAGIC ZORDER BY (timestamp)
+# MAGIC 
+# MAGIC %sql
+# MAGIC CREATE BLOOMFILTER INDEX
+# MAGIC ON TABLE no_part_table
+# MAGIC FOR COLUMNS(key OPTIONS (fpp=0.1, numItems=200))
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC describe no_part_table
 
 # COMMAND ----------
 
